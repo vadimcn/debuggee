@@ -1,0 +1,7 @@
+[package]
+name = "debuggee"
+version = "0.1.0"
+
+[[bin]]
+path = "debuggee.rs"
+name = "debuggee_rs"

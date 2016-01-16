@@ -40,9 +40,12 @@ fn thread_proc() {
 fn main() {
     println!("main start");
     let thread = thread::spawn(thread_proc);
-    
     foo(1);
-    
     thread.join().unwrap();
     println!("main end");
+    
+    let mut i = 0;
+    loop {
+        i += 1;
+    }
 }

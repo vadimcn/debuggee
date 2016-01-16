@@ -3,7 +3,7 @@
     //"debugServer": 4711,
     "configurations": [
         {
-            "name": "debug debuggee_rs",
+            "name": "debuggee_rs",
             "request": "launch",
             "type": "lldb",
             "program": "target/debug/debuggee_rs",
@@ -12,7 +12,7 @@
             "stopOnEntry": false
         },
         {
-            "name": "debug debuggee_cpp",
+            "name": "debuggee_cpp",
             "request": "launch",
             "type": "lldb",
             "program": "debuggee_cpp",

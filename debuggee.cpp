@@ -45,5 +45,10 @@ int main() {
     foo(1);
     thread.join();
     printf("main end\n");
+    
+    int i = 0;
+    for (;;) {
+        i += 1;
+    }
     return 0;
 }

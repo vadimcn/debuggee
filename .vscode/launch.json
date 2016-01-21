@@ -3,11 +3,35 @@
     //"debugServer": 4711,
     "configurations": [
         {
+            "name": "stepover_rs",
+            "request": "launch",
+            "type": "lldb",
+            "program": "stepover.exe",
+            "args": [
+                "test"
+            ],
+            "stdio": "*",
+            "stopOnEntry": false
+        },
+        {
+            "name": "stepover_cpp",
+            "request": "launch",
+            "type": "lldb",
+            "program": "stepover_cpp.exe",
+            "args": [
+                "test"
+            ],
+            "stdio": "*",
+            "stopOnEntry": false
+        },        
+        {
             "name": "debuggee_rs",
             "request": "launch",
             "type": "lldb",
-            "program": "target/debug/debuggee_rs",
-            "args": ["test"],
+            "program": "target/debug/debuggee_rs.exe",
+            "args": [
+                "test"
+            ],
             "stdio": "*",
             "stopOnEntry": false
         },
@@ -15,8 +39,10 @@
             "name": "debuggee_cpp",
             "request": "launch",
             "type": "lldb",
-            "program": "debuggee_cpp",
-            "args": ["test"],
+            "program": "debuggee_cpp.exe",
+            "args": [
+                "test"
+            ],
             "stdio": "*",
             "stopOnEntry": false
         }

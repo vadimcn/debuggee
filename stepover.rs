@@ -15,17 +15,20 @@ macro_rules! quox{
 }
 
 #[inline]
-fn inlined() {
-    xxx(31);
-    xxx(32);
-    xxx(33);
+fn inlined(x: i32) {
+    xxx(x+1);
+    xxx(x+2);
+    xxx(x+3);
 }
 
 #[inline(never)]
 fn main() {
+    xxx(1);
     xxx(10);
-    inlined();
+    inlined(10);
     xxx(20);
-    quox!(1);
+    quox!(20);
     xxx(30);
+    println!("Hello {}", "world");
+    xxx(40);
 }

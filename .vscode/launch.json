@@ -1,39 +1,39 @@
 {
     "version": "0.2.0",
-    //"debugServer": 4711,
+    "debugServer": 4711,
     "configurations": [
         {
             "name": "stepover_rs",
             "request": "launch",
             "type": "lldb",
             "program": "stepover",
-            "args": [
-                "test"
-            ],
             "stdio": "*",
-            "stopOnEntry": false
+            "stopOnEntry": false,
         },
         {
             "name": "stepover_cpp",
             "request": "launch",
             "type": "lldb",
             "program": "stepover_cpp",
-            "args": [
-                "test"
-            ],
             "stdio": "*",
             "stopOnEntry": false
-        },        
+        },
         {
             "name": "debuggee_rs",
             "request": "launch",
             "type": "lldb",
-            "program": "target/debug/debuggee_rs.exe",
+            "program": "target/debug/debuggee_rs",
             "args": [
                 "test"
             ],
             "stdio": "*",
-            "stopOnEntry": false
+            "stopOnEntry": false 
+            ,
+            "initCommands": [
+                "command script import \"/Users/vadimcn/Nw/rust/src/etc/lldb_rust_formatters.py\"",
+                "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
+                "type category enable Rust"
+            ]
         },
         {
             "name": "debuggee_cpp",

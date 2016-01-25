@@ -6,7 +6,7 @@
             "name": "stepover_rs",
             "request": "launch",
             "type": "lldb",
-            "program": "stepover.exe",
+            "program": "stepover",
             "args": [
                 "test"
             ],
@@ -17,7 +17,7 @@
             "name": "stepover_cpp",
             "request": "launch",
             "type": "lldb",
-            "program": "stepover_cpp.exe",
+            "program": "stepover_cpp",
             "args": [
                 "test"
             ],

@@ -7,6 +7,12 @@ struct Foo {
     b: String,
 }
 
+enum Bar {
+    Bar1,
+    Bar2(i32),
+    Bar3(String),
+}
+
 fn baz(n: i32) {
     println!("baz {} start", n);
     
@@ -27,6 +33,9 @@ fn foo(n: i32) {
     let d = Foo { a: 42, b: "Foo".to_owned() };
     let e = [1, 2, 3, 4, 5];
     let f = vec![1, 2, 3, 4, 5];
+    let g = [Bar::Bar1,
+             Bar::Bar2(32),
+             Bar::Bar3("DIQUEORUI".to_owned())];
     bar(n);
     println!("foo {} end", n);
 }

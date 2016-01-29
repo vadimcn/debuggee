@@ -44,17 +44,21 @@ fn thread_proc() {
     println!("thread_proc start");
     foo(2);
     println!("thread_proc end");
+    inf_loop();
+}
+
+fn inf_loop() {
+    let mut i:i64 = 0;
+    loop {
+        i += 1;
+    }
 }
 
 fn main() {
     println!("main start");
     let thread = thread::spawn(thread_proc);
     foo(1);
-    thread.join().unwrap();
+    //thread.join().unwrap();
     println!("main end");
-    
-    let mut i = 0;
-    loop {
-        i += 1;
-    }
+    inf_loop();
 }

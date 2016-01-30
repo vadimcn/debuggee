@@ -13,12 +13,14 @@ int baz(int n) {
     printf("baz %d start\n", n);
     
     printf("baz %d end\n", n);
+    return n;
 }
 
 int bar(int n) {
     printf("bar %d start\n", n);
     baz(n);
     printf("bar %d end\n", n);
+    return n;
 }
 
 int foo(int n) {
@@ -31,6 +33,7 @@ int foo(int n) {
     std::vector<int> f = {1, 2, 3, 4, 5};
     bar(n);
     printf("foo %d end\n", n);
+    return n;
 }
 
 void thread_proc() {

@@ -7,13 +7,13 @@
 // ${cwd}: the current working directory of the spawned process
 {
 	"version": "0.1.0",
-    "command": "g++",
+    "command": "make",
     "showOutput": "always",
-    "args": ["-std=c++11", "-pthread"],
+    "args": ["WORKSPACE_ROOT=${workspaceRoot}"],
     "tasks": [
-        {
-            "taskName": "build debuggee.cpp",
-            "args": [ "-g", "${workspaceRoot}/debuggee.cpp", "-o", "debuggee" ]
-        }    
+        { "taskName": "debuggee_cpp" },
+        { "taskName": "debuggee_rs" },
+        { "taskName": "stepover_cpp" },
+        { "taskName": "stepover_rs" }        
     ]
 }

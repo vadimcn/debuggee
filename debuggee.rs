@@ -60,5 +60,6 @@ fn main() {
     foo(1);
     //thread.join().unwrap();
     println!("main end");
-    inf_loop();
+    panic!("foo");
+    //inf_loop();
 }

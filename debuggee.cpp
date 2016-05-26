@@ -49,6 +49,14 @@ int main() {
     thread.join();
     printf("main end\n");
     
+    try {
+        throw 42;
+    } catch (int x) {
+        printf("caught %d\n", x);
+    }
+    
+    throw 13;
+    
     int i = 0;
     for (;;) {
         i += 1;

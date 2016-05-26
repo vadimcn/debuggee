@@ -30,8 +30,8 @@ fn main() {
     // x__________x(20);
     // quox!(20);
     x__________x(30);
-    //println!("Hello {}", "world");
-    println!("Hello world");
+    println!("Hello {}", "world");
+    //println!("Hello world");
     x__________x(40);
     // println!("Hello {}", "world");
     // x__________x(50);    

@@ -3,47 +3,51 @@
     "debugServer": 4711,
     "configurations": [
         {
-            "name": "stepover_rs",
+            "name": "debuggee_cpp",
             "request": "launch",
             "type": "lldb",
-            "program": "${workspaceRoot}/stepover",
+            "preLaunchTask": "debuggee_cpp",
+            "program": "${workspaceRoot}/out/debuggee_cpp",
+            "args": [ "test" ],
             "stdio": "*",
-            "stopOnEntry": false
-        },
-        {
-            "name": "stepover_cpp",
-            "request": "launch",
-            "type": "lldb",
-            "program": "${workspaceRoot}/stepover_cpp",
-            "stdio": "*",
-            "stopOnEntry": false
+            "stopOnEntry": false,
+            "sourceLanguages": ["cpp"]
         },
         {
             "name": "debuggee_rs",
             "request": "launch",
             "type": "lldb",
-            "program": "${workspaceRoot}/target/debug/debuggee_rs",
+            "preLaunchTask": "debuggee_rs",
+            "program": "${workspaceRoot}/out/debuggee_rs",
             "args": [
                 "test"
             ],
-            "stdio": "*",
+            "sourceLanguages": ["rust"],
+            //"stdio": "*",
             "stopOnEntry": false 
-            ,
-            "initCommands": [
-                "command script import \"/usr/local/google/home/vadimcn/NW/rust/src/etc/lldb_rust_formatters.py\"",
-                "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
-                "type category enable Rust"
-            ]
+            // ,
+            // "initCommands": [
+            //     "command script import \"${workspaceRoot}/../../rust/src/etc/lldb_rust_formatters.py\"",
+            //     "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
+            //     "type category enable Rust"
+            // ]
         },
         {
-            "name": "debuggee_cpp",
+            "name": "stepover_cpp",
             "request": "launch",
             "type": "lldb",
-            "program": "${workspaceRoot}/debuggee_cpp",
-            "args": [
-                "test"
-            ],
+            "preLaunchTask": "stepover_cpp",
+            "program": "${workspaceRoot}/out/stepover_cpp",
             "stdio": "*",
+            "stopOnEntry": false
+        },
+        {
+            "name": "stepover_rs",
+            "request": "launch",
+            "type": "lldb",
+            "preLaunchTask": "stepover_rs",
+            "program": "${workspaceRoot}/out/stepover_rs",
+            "stdio":"*",
             "stopOnEntry": false
         }
     ]

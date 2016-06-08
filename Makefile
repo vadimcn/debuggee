@@ -14,5 +14,8 @@ stepover_cpp: outdir $(WORKSPACE_ROOT)/debuggee.cpp
 stepover_rs: outdir $(WORKSPACE_ROOT)/debuggee.rs
 	rustc -g $(WORKSPACE_ROOT)/stepover.rs -o $(WORKSPACE_ROOT)/out/stepover_rs
 
+hashmap_rs: outdir $(WORKSPACE_ROOT)/hashmap.rs
+	rustc -g $(WORKSPACE_ROOT)/hashmap.rs -o $(WORKSPACE_ROOT)/out/hashmap_rs
+	
 outdir:
 	mkdir -p $(WORKSPACE_ROOT)/out/

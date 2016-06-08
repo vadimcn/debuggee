@@ -8,10 +8,16 @@
             "type": "lldb",
             "preLaunchTask": "debuggee_cpp",
             "program": "${workspaceRoot}/out/debuggee_cpp",
-            "args": [ "test" ],
-            "stdio": "*",
+            "args": [
+                "test"
+            ],
             "stopOnEntry": false,
-            "sourceLanguages": ["cpp"]
+            "sourceLanguages": [
+                "cpp"
+            ],
+            "preRunCommands": [
+                "target stop-hook add -o disassemble"
+            ]
         },
         {
             "name": "debuggee_rs",
@@ -22,9 +28,10 @@
             "args": [
                 "test"
             ],
-            "sourceLanguages": ["rust"],
-            //"stdio": "*",
-            "stopOnEntry": false 
+            "sourceLanguages": [
+                "rust"
+            ],
+            "stopOnEntry": false
             // ,
             // "initCommands": [
             //     "command script import \"${workspaceRoot}/../../rust/src/etc/lldb_rust_formatters.py\"",
@@ -46,9 +53,14 @@
             "request": "launch",
             "type": "lldb",
             "preLaunchTask": "stepover_rs",
-            "program": "${workspaceRoot}/out/stepover_rs",
-            "stdio":"*",
-            "stopOnEntry": false
+            "program": "${workspaceRoot}/out/stepover_rs"
+        },
+        {
+            "name": "hashmap_rs",
+            "request": "launch",
+            "type": "lldb",
+            "preLaunchTask": "hashmap_rs",
+            "program": "${workspaceRoot}/out/hashmap_rs"
         }
     ]
 }

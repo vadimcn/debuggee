@@ -14,6 +14,7 @@
         { "taskName": "debuggee_cpp" },
         { "taskName": "debuggee_rs" },
         { "taskName": "stepover_cpp" },
-        { "taskName": "stepover_rs" }        
+        { "taskName": "stepover_rs" },
+        { "taskName": "hashmap_rs" }       
     ]
 }

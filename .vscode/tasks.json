@@ -11,10 +11,12 @@
     "showOutput": "always",
     "args": ["WORKSPACE_ROOT=${workspaceRoot}"],
     "tasks": [
-        { "taskName": "debuggee_cpp" },
-        { "taskName": "debuggee_rs" },
-        { "taskName": "stepover_cpp" },
-        { "taskName": "stepover_rs" },
-        { "taskName": "hashmap_rs" }       
+        { "taskName": "out/debuggee.cpp" },
+        { "taskName": "out/stepover.cpp" },
+        { "taskName": "out/debuggee.rs" },
+        { "taskName": "out/stepover.rs" },
+        { "taskName": "out/hashmap.rs" },
+        { "taskName": "out/test.rs" },
+        { "taskName": "out/knights_tour.rs" }   
     ]
 }

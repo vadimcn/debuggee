@@ -1,73 +1,13 @@
 {
     "version": "0.2.0",
-    //"debugServer": 4711,
+    "debugServer": 4711,
     "configurations": [
         {
-            "name": "debuggee_cpp",
+            "name": "Debug",
             "request": "launch",
             "type": "lldb",
-            "preLaunchTask": "debuggee_cpp",
-            "program": "${workspaceRoot}/out/debuggee_cpp",
-            "args": [
-                "test"
-            ],
-            "stopOnEntry": false,
-            "sourceLanguages": [
-                "cpp"
-            ],
-            "preRunCommands": [
-                "target stop-hook add -o disassemble"
-            ]
-        },
-        {
-            "name": "debuggee_rs",
-            "request": "launch",
-            "type": "lldb",
-            "preLaunchTask": "debuggee_rs",
-            "program": "${workspaceRoot}/out/debuggee_rs",
-            "args": [
-                "test"
-            ],
-            "sourceLanguages": [
-                "rust"
-            ],
-            "stopOnEntry": false
-            // ,
-            // "initCommands": [
-            //     "command script import \"${workspaceRoot}/../../rust/src/etc/lldb_rust_formatters.py\"",
-            //     "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
-            //     "type category enable Rust"
-            // ]
-        },
-        {
-            "name": "stepover_cpp",
-            "request": "launch",
-            "type": "lldb",
-            "preLaunchTask": "stepover_cpp",
-            "program": "${workspaceRoot}/out/stepover_cpp",
-            "stdio": "*",
-            "stopOnEntry": false
-        },
-        {
-            "name": "stepover_rs",
-            "request": "launch",
-            "type": "lldb",
-            "preLaunchTask": "stepover_rs",
-            "program": "${workspaceRoot}/out/stepover_rs"
-        },
-        {
-            "name": "hashmap_rs",
-            "request": "launch",
-            "type": "lldb",
-            "preLaunchTask": "hashmap_rs",
-            "program": "${workspaceRoot}/out/hashmap_rs"
-        },
-        {
-            "name": "hashmap_rs/Debug",
-            "request": "launch",
-            "type": "gdb",
-            "preLaunchTask": "hashmap_rs",
-            "target": "${workspaceRoot}/out/hashmap_rs"
-        }        
+            "preLaunchTask": "out/${fileBasename}",
+            "program": "${workspaceRoot}/out/${fileBasename}"
+        }
     ]
 }

@@ -11,12 +11,7 @@
     "showOutput": "always",
     "args": ["WORKSPACE_ROOT=${workspaceRoot}"],
     "tasks": [
-        { "taskName": "out/debuggee.cpp" },
-        { "taskName": "out/stepover.cpp" },
-        { "taskName": "out/debuggee.rs" },
-        { "taskName": "out/stepover.rs" },
-        { "taskName": "out/hashmap.rs" },
-        { "taskName": "out/test.rs" },
-        { "taskName": "out/knights_tour.rs" }   
+        { "taskName": "Build", "args": ["out/${fileBasename}"], 
+          "isBuildCommand": true, "suppressTaskName": true}   
     ]
 }

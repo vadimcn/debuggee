@@ -6,7 +6,7 @@
             "name": "Debug",
             "request": "launch",
             "type": "lldb",
-            "preLaunchTask": "out/${fileBasename}",
+            "preLaunchTask": "Build",
             "program": "${workspaceRoot}/out/${fileBasename}"
         }
     ]

@@ -8,6 +8,17 @@
             "type": "lldb",
             "preLaunchTask": "Build",
             "program": "${workspaceRoot}/out/${fileBasename}"
+        },
+        {
+            "name": "With formatters",
+            "request": "launch",
+            "type": "lldb",
+            "preLaunchTask": "Build",
+            "initCommands": [
+                "command script import /Users/vadimcn/NW/rust/src/etc/lldb_rust_formatters.py",
+                "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
+                "type category enable Rust"],
+            "program": "${workspaceRoot}/out/${fileBasename}"
         }
     ]
 }

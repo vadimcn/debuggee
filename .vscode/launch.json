@@ -1,6 +1,6 @@
 {
     "version": "0.2.0",
-    "debugServer": 4711,
+    //"debugServer": 4711,
     "configurations": [
         {
             "name": "debuggee_cpp",
@@ -61,6 +61,13 @@
             "type": "lldb",
             "preLaunchTask": "hashmap_rs",
             "program": "${workspaceRoot}/out/hashmap_rs"
-        }
+        },
+        {
+            "name": "hashmap_rs/Debug",
+            "request": "launch",
+            "type": "gdb",
+            "preLaunchTask": "hashmap_rs",
+            "target": "${workspaceRoot}/out/hashmap_rs"
+        }        
     ]
 }

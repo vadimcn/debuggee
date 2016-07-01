@@ -1,24 +1,26 @@
 {
     "version": "0.2.0",
-    "debugServer": 4711,
+    //"debugServer": 4711,
     "configurations": [
         {
             "name": "Debug",
-            "request": "launch",
             "type": "lldb",
+            "request": "launch",
             "preLaunchTask": "Build",
-            "program": "${workspaceRoot}/out/${fileBasename}"
+            "program": "${workspaceRoot}/out/${fileBasename}",
+            "args": []
+            // "initCommands": [
+            //     "command script import \"/Users/vadimcn/NW/rust/src/etc/lldb_rust_formatters.py\"",
+            //     "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
+            //     "type category enable Rust"
+            // ]
         },
         {
-            "name": "With formatters",
+            "name": "Debug with Debug",
+            "type": "lldb-mi",
             "request": "launch",
-            "type": "lldb",
             "preLaunchTask": "Build",
-            "initCommands": [
-                "command script import /Users/vadimcn/NW/rust/src/etc/lldb_rust_formatters.py",
-                "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
-                "type category enable Rust"],
-            "program": "${workspaceRoot}/out/${fileBasename}"
+            "target": "${workspaceRoot}/out/${fileBasename}"
         }
     ]
 }

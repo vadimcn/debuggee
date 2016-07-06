@@ -10,12 +10,16 @@ fn x__________x(label: i32) {
 	test::black_box(label);
 }
 
-macro_rules! quox{
-    ($($a:stmt;)*) => { $($a;)* }
+macro_rules! quox {
+    () => { let a = 111; }
 }
 
-macro_rules! quox2{
-    ($($a:stmt;)*) => { quox!($($a;)*) }
+macro_rules! quox2 {
+    () => {
+        let x = 222;
+        quox!();
+        let y = 333;
+    }
 }
 
 #[inline(always)]
@@ -28,15 +32,12 @@ fn inlined<T>(x: T) {
 #[inline(never)]
 fn main() {
     x__________x(0);
+    inlined(42);
     x__________x(1);
-    inlined(10);
+    quox2!();
     x__________x(2);
-    quox2!{
-        let a = 1;
-    }
-    x__________x(3);
-    let x = vec![42];
-    x__________x(4);
-    println!("Hello world");
+    // let x = vec![42];
+    // x__________x(4);
+    // println!("Hello {}", "world");
     x__________x(999);    
 }

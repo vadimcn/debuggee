@@ -1,21 +1,34 @@
-
+extern "C" {
 __attribute__((noinline)) 
-void xxx(int x) {
+void x_____x(int x) {
 	__asm("");
+}
 }
 
 __attribute__((always_inline))
 void inlined() {
-    xxx(31);
-    xxx(32);
-    xxx(33);
+    x_____x(101);
+    {
+        x_____x(102);
+        {
+            x_____x(103);
+        }
+    }
+}
+
+__attribute__((always_inline))
+void inlined2() {
+    x_____x(201);
+    inlined();
+    x_____x(202);
 }
 
 __attribute__((noinline)) 
 int main() {
-    xxx(10);
+    x_____x(10);
     inlined();
-    xxx(20);
-    //quox!(1);
-    //xxx(30);
+    x_____x(20);
+    int a = 0;
+    inlined2();
+    x_____x(30);
 }

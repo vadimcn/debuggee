@@ -4,20 +4,24 @@
 #![feature(test)]
 extern crate test;
 
+#[macro_use]
+#[path = "stepover_macros.rs"]
+mod macros;
+
 #[no_mangle]
 #[inline(never)]
 fn x__________x(label: i32) {
 	test::black_box(label);
 }
 
-macro_rules! quox {
+macro_rules! foo {
     () => { let a = 111; }
 }
 
-macro_rules! quox2 {
+macro_rules! foo2 {
     () => {
         let x = 222;
-        quox!();
+        foo!();
         let y = 333;
     }
 }
@@ -29,14 +33,22 @@ fn inlined<T>(x: T) {
     x__________x(199);
 }
 
+#[inline(always)]
+fn inlined2<T>(x: T) {
+    x__________x(201);
+    inlined(x);
+    x__________x(299);
+}
+
 #[inline(never)]
 fn main() {
     x__________x(0);
-    inlined(42);
+    foo2!();
     x__________x(1);
-    quox2!();
-    x__________x(2);
+    bar2!();
+    // x__________x(2);
     // let x = vec![42];
+    // test::black_box(x);
     // x__________x(4);
     // println!("Hello {}", "world");
     x__________x(999);    

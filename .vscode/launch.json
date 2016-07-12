@@ -7,7 +7,7 @@
             "type": "lldb",
             "request": "launch",
             "preLaunchTask": "Build",
-            "program": "${workspaceRoot}/out/${fileBasename}",
+            "program": "${workspaceRoot}/out/${fileBasename}.exe",
             "args": []
             // "initCommands": [
             //     "command script import \"/Users/vadimcn/NW/rust/src/etc/lldb_rust_formatters.py\"",
@@ -20,7 +20,7 @@
             "type": "lldb-mi",
             "request": "launch",
             "preLaunchTask": "Build",
-            "target": "${workspaceRoot}/out/${fileBasename}"
+            "target": "${workspaceRoot}/out/${fileBasename}.exe"
         }
     ]
 }

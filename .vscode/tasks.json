@@ -11,7 +11,7 @@
     "showOutput": "always",
     "args": ["WORKSPACE_ROOT=${workspaceRoot}"],
     "tasks": [
-        { "taskName": "Build", "args": ["out/${fileBasename}"], 
+        { "taskName": "Build", "args": ["out/${fileBasename}.exe"], 
           "isBuildCommand": true, "suppressTaskName": true}   
     ]
 }

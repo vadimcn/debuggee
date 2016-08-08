@@ -16,8 +16,15 @@
             // ]
         },
         {
+            "name": "NoBuild",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
             "name": "Debug with Debug",
-            "type": "lldb-mi",
+            "type": "gdb",
             "request": "launch",
             "preLaunchTask": "Build",
             "target": "${workspaceRoot}/out/${fileBasename}/target.exe"

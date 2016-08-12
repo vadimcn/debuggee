@@ -6,7 +6,7 @@
             "name": "Debug",
             "type": "lldb",
             "request": "launch",
-            "preLaunchTask": "Build",
+            //"preLaunchTask": "Build",
             "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
             "args": []
             // "initCommands": [
@@ -16,18 +16,19 @@
             // ]
         },
         {
-            "name": "NoBuild",
-            "type": "lldb",
-            "request": "launch",
-            "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
-            "internalConsoleOptions": "openOnSessionStart"
-        },
-        {
-            "name": "Debug with Debug",
+            "name": "Debug/GDB",
             "type": "gdb",
             "request": "launch",
-            "preLaunchTask": "Build",
+            //"preLaunchTask": "Build",
             "target": "${workspaceRoot}/out/${fileBasename}/target.exe"
         }
+        {
+            "name": "Debug/LLDB",
+            "type": "lldb-mi",
+            "request": "launch",
+            //"preLaunchTask": "Build",
+            "target": "${workspaceRoot}/out/${fileBasename}/target.exe"
+        }
+        
     ]
 }

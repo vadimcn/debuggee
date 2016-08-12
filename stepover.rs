@@ -1,55 +1,47 @@
-#![allow(bad_style)]
 #![allow(unused)]
-#![allow(private_no_mangle_fns)] 
 #![feature(test)]
 extern crate test;
 
-#[macro_use]
-#[path = "stepover_macros.rs"]
-mod macros;
-
-#[no_mangle]
-#[inline(never)]
-fn x__________x(label: i32) {
-	test::black_box(label);
+macro_rules! MACRO {
+    () => ({
+        let a = 890242;
+        zzzzzzzzzzzzzzzzzzz(line!()); // #break 
+    })
 }
 
-macro_rules! foo {
-    () => { let a = 111; }
-}
-
-macro_rules! foo2 {
-    () => {
-        let x = 222;
-        foo!();
-        let y = 333;
+macro_rules! MACRO2 {
+    ($x:expr) => {
+        test::black_box($x)
     }
 }
 
-#[inline(always)]
-fn inlined<T>(x: T) {
-    x__________x(101);
-    test::black_box(x);
-    x__________x(199);
+macro_rules! MACRO3 {
+    ($x:ident) => {
+        fn $x() {
+            println!(stringify!($x));
+        }
+    }
 }
 
-#[inline(always)]
-fn inlined2<T>(x: T) {
-    x__________x(201);
-    inlined(x);
-    x__________x(299);
-}
+MACRO3!(expanded);
 
-#[inline(never)]
 fn main() {
-    x__________x(0);
-    foo2!();
-    x__________x(1);
-    bar2!();
-    // x__________x(2);
-    // let x = vec![42];
-    // test::black_box(x);
-    // x__________x(4);
-    // println!("Hello {}", "world");
-    x__________x(999);    
+    MACRO3!(expanded2);
+
+    let a = 10;
+    let b = 33;
+    zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    MACRO!(); 
+    zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    MACRO2!("Hello");
+    zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    expanded();
+    zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    expanded2();
+    zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    println!("Hello");
+    zzzzzzzzzzzzzzzzzzz(line!()); // #break
 }
+
+#[no_mangle]
+pub fn zzzzzzzzzzzzzzzzzzz(n:u32) {()}

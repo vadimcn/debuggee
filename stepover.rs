@@ -23,23 +23,38 @@ macro_rules! MACRO3 {
     }
 }
 
+fn foo() {
+    println!("Foo");
+}
+
+macro_rules! MACRO4 {
+    ($x:ident, $y:expr) => {
+        let $x = $y;
+        foo();
+    }
+}
+
 MACRO3!(expanded);
 
 fn main() {
     MACRO3!(expanded2);
 
-    let a = 10;
-    let b = 33;
+    // let a = 10;
+    // let b = 33;
+    // zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    // MACRO!(); 
+    // zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    // MACRO2!("Hello");
+    // zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    // expanded();
+    // zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    // expanded2();
+    // zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    // println!("Hello");
+    // zzzzzzzzzzzzzzzzzzz(line!()); // #break
+    // println!("Hello {}", "world");
     zzzzzzzzzzzzzzzzzzz(line!()); // #break
-    MACRO!(); 
-    zzzzzzzzzzzzzzzzzzz(line!()); // #break
-    MACRO2!("Hello");
-    zzzzzzzzzzzzzzzzzzz(line!()); // #break
-    expanded();
-    zzzzzzzzzzzzzzzzzzz(line!()); // #break
-    expanded2();
-    zzzzzzzzzzzzzzzzzzz(line!()); // #break
-    println!("Hello");
+    MACRO4!(x, 42);
     zzzzzzzzzzzzzzzzzzz(line!()); // #break
 }
 

@@ -1,0 +1,6 @@
+[package]
+name = "n_body"
+version = "0.1.0"
+authors = ["VC <vadimcn@gmail.com>"]
+
+[dependencies]

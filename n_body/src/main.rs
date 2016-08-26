@@ -175,6 +175,16 @@ fn offset_momentum(bodies: &mut [Planet; N_BODIES]) {
 }
 
 fn main() {
+    #[cfg(profiling)]
+    fn init_profiler() {
+        extern crate profiler_rt;
+        profiler_rt::initialize();
+    }
+    #[cfg(not(profiling))]
+    fn init_profiler() {
+    }
+    init_profiler();
+
     let n = std::env::args_os().nth(1)
         .and_then(|s| s.into_string().ok())
         .and_then(|n| n.parse().ok())
@@ -186,7 +196,7 @@ fn main() {
     offset_momentum(&mut bodies);
     println!("{:.9}", energy(&bodies));
 
-    for _ in (0..n) {
+    for _ in 0..n {
         advance(&mut bodies, 0.01, &mut diff, &mut mag);
     }
 

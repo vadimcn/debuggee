@@ -175,15 +175,15 @@ fn offset_momentum(bodies: &mut [Planet; N_BODIES]) {
 }
 
 fn main() {
-    #[cfg(profiling)]
-    fn init_profiler() {
-        extern crate profiler_rt;
-        profiler_rt::initialize();
-    }
-    #[cfg(not(profiling))]
-    fn init_profiler() {
-    }
-    init_profiler();
+    // #[cfg(profiling)]
+    // fn init_profiler() {
+    //     extern crate profiler_rt;
+    //     profiler_rt::initialize();
+    // }
+    // #[cfg(not(profiling))]
+    // fn init_profiler() {
+    // }
+    // init_profiler();
 
     let n = std::env::args_os().nth(1)
         .and_then(|s| s.into_string().ok())

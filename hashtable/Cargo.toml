@@ -1,0 +1,11 @@
+[package]
+name = "hash-test"
+version = "0.1.0"
+
+[profile.release]
+opt-level = 3
+lto = false
+
+[profile.bench]
+opt-level = 3
+lto = false

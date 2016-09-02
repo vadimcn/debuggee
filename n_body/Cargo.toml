@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["VC <vadimcn@gmail.com>"]
 
 [profile.release]
-lto = true
+lto = false

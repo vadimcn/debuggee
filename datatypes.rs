@@ -3,7 +3,7 @@
 use std::collections::HashMap;
 
 enum RegularEnum {
-    A(i32),
+    A,
     B(i32, i32),
     C{x:f64, y:f64},
 }
@@ -40,7 +40,12 @@ fn main() {
     // let z = 1.0;
     // let x = (1, "a", 42.0);
     // let x2 = &(1, "a", 42.0);
-    let re = RegularEnum::B(100, 200);
+    let mut re;
+    println!("---");
+    re = RegularEnum::A;
+    re = RegularEnum::B(100, 200);
+    re = RegularEnum::C{x:10.0, y:20.0};
+
     // let ce = CStyleEnum::B;
     let ce1: CompressedEnum<&str> = CompressedEnum::Some("string");
     let ce2: CompressedEnum<&str> = CompressedEnum::Nothing;

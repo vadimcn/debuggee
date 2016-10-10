@@ -3,32 +3,60 @@
     //"debugServer": 4711,
     "configurations": [
         {
-            "name": "Debug",
+            "name": "CodeLLDB",
             "type": "lldb",
             "request": "launch",
             //"preLaunchTask": "Build",
             "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
-            "args": []
-            // "initCommands": [
-            //     "command script import \"/Users/vadimcn/NW/rust/src/etc/lldb_rust_formatters.py\"",
-            //     "type summary add --no-value --python-function lldb_rust_formatters.print_val -x \".*\" --category Rust",
-            //     "type category enable Rust"
-            // ]
+            "args": [],
+            "sourceLanguages": [
+                "rust"
+            ],
+            "initCommands": [
+                "settings set target.source-map '/Users/rustbuild/src/rust-buildbot/slave/nightly-dist-rustc-mac/build/obj/../src' '/Users/vadimcn/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'"
+            ]
         },
         {
-            "name": "Debug/GDB",
+            "name": "CodeLLDB attach",
+            "type": "lldb",
+            "request": "attach"
+        },
+        {
+            "name": "Native Debug/GDB",
             "type": "gdb",
             "request": "launch",
             //"preLaunchTask": "Build",
-            "target": "${workspaceRoot}/out/${fileBasename}/target.exe"
-        }
+            "target": "${workspaceRoot}/out/${fileBasename}/target.exe",
+            "cwd": "${workspaceRoot}"
+        },
         {
-            "name": "Debug/LLDB",
+            "name": "Native Debug/LLDB",
             "type": "lldb-mi",
             "request": "launch",
             //"preLaunchTask": "Build",
             "target": "${workspaceRoot}/out/${fileBasename}/target.exe"
+        },
+        {
+            "name": "MS Debug/GDB",
+            "type": "cppdbg",
+            "MIMode": "gdb",
+            //"miDebuggerPath": "/Users/vadimcn/.cargo/bin/rust-gdb",
+            "request": "launch",
+            "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "MS Debug/LLDB",
+            "type": "cppdbg",
+            "MIMode": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
+            "cwd": "${workspaceRoot}",
+            "setupCommands": [
+                { "text": "command script import '/Users/vadimcn/.multirust/toolchains/nightly-x86_64-apple-darwin/etc/lldb_rust_formatters.py'" },
+                { "text": "type summary add --no-value --python-function lldb_rust_formatters.print_val -x '.*' --category Rust" },
+                { "text": "type category enable Rust" }
+            ]
         }
-        
     ]
 }

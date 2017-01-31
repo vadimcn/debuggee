@@ -1,3 +1,4 @@
+#![allow(unused)]
 
 macro_rules! trivial {
     ($e1:expr) => ($e1)
@@ -57,7 +58,12 @@ fn main() {
 
     zzz(); // #break
     sentinel();
+
+    foo();
+    sentinel();
 }
+
+include!("macro-scopes-inc.rs"); 
 
 fn zzz() {()}
 fn sentinel() {()}

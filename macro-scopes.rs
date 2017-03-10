@@ -56,10 +56,12 @@ fn main() {
 
     let c = dup_expr!(10 * 20);
 
+
+
     zzz(); // #break
     sentinel();
-
-    foo();
+ 
+    included();
     sentinel();
 }
 
@@ -67,3 +69,4 @@ include!("macro-scopes-inc.rs");
 
 fn zzz() {()}
 fn sentinel() {()}
+ 

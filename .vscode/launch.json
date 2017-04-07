@@ -1,6 +1,5 @@
 {
     "version": "0.2.0",
-    //"debugServer": 4711,
     "configurations": [
         {
             "name": "CodeLLDB",
@@ -11,9 +10,29 @@
             "args": [],
             "sourceLanguages": [
                 "rust"
-            ],
+            ]
+        },
+        {
+            "name": "CodeLLDB fizbuzz",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/out/${fileBasename}/target.exe",
+            "args": ["100", "3:fizz", "5:buzz"],
+            "sourceLanguages": [
+                "rust"
+            ]
+        },
+        {
+            "name": "CodeLLDB mandelbrot",
+            "type": "lldb",
+            "request": "launch",
+            //"preLaunchTask": "Build",
+            "program": "${workspaceRoot}/out/mandelbrot.cpp/target.exe",
             "initCommands": [
-                "settings set target.source-map '/Users/rustbuild/src/rust-buildbot/slave/nightly-dist-rustc-mac/build/obj/../src' '/Users/vadimcn/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'"
+                "command script import ${workspaceRoot}/debugvis.py"
+            ],
+            "sourceLanguages": [
+                "cpp"
             ]
         },
         {

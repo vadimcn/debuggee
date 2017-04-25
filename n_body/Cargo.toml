@@ -3,5 +3,9 @@ name = "n_body"
 version = "0.1.0"
 authors = ["VC <vadimcn@gmail.com>"]
 
+[[bin]]
+name = "n_body"
+path = "n_body.rs"
+
 [profile.release]
 lto = false
